@@ -1,6 +1,6 @@
 require "sqlite3"
 
-db = SQLite3::Database.new "./db/bleh.jess"
+db = SQLite3::Database.new "./db/dev.db"
 
 db.execute <<-SQL
   create table videogames (
