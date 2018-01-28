@@ -1,2 +1,2 @@
-require_relative"app"
-run cuba
+require_relative "app2"
+run Cuba
