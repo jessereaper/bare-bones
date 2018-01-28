@@ -1,1 +1,1 @@
-web: ruby app2.rb -p $PORT
+web: ruby rackup -p $PORT
