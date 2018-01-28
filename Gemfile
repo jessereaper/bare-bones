@@ -5,3 +5,5 @@ ruby "2.5.0" # make sure this matches ur current version on ruby
 gem 'cuba'
 
 gem 'tilt'
+
+gem "sqlite3"
