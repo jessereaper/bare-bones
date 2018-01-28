@@ -53,10 +53,10 @@ Cuba.use Rack::Session::Cookie, :secret => ENV["SESSION_SECRET"] || "__a_very_lo
 Cuba.plugin Cuba::Safe
 Cuba.plugin Cuba::Render
 
-db = SQLite3::Database.new "./db/dev.db"
+db = SQLite3::Database.new "./db/bleh.jess"
 
-students = db.execute("SELECT * FROM students").map do |name, email, discord|
-  { :name => name, :email => email, :discord => discord }
+students = db.execute("SELECT * FROM videogames").map do |name, rate, console|
+  { :name => name, :rate => rate, :console => console }
 end
 
 Cuba.define do
@@ -65,7 +65,7 @@ Cuba.define do
   end
 
   on root do
-    res.write view("index", students: students)
+    res.write view("index", videogames: videogames)
   end
 
   def not_found
