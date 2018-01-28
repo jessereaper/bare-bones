@@ -1,7 +1,5 @@
 require 'rack'
 
-require 'rack'
-
 +def layout(page)
 +  <<~HEREDOC
 +    <!DOCTYPE html>
