@@ -12,7 +12,7 @@ db.execute "
 "
 
 videogames = [
-  ["Final Fantasy 14", "8/10", "PC, ps4 if scrub"],
+  ["Final Fantasy 14", "8/10", "PC, ps4 if scrub"],["league of legends",  "9/10", "PC"],["Monster Hunter",  "7/10", "ps4 and coming soon to a pc near you"]
 ]
 
 videogames.each do |videogames|
