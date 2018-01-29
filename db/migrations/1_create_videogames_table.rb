@@ -4,9 +4,9 @@ db = SQLite3::Database.new "./db/dev.db"
 
 db.execute <<-SQL
   create table videogames (
-    name text,
-    rate text,
-    console text
+    name varchar(255),
+    rate varchar(255),
+    console varchar(255)
   );
 SQL
 
