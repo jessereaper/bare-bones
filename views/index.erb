@@ -1,12 +1,16 @@
- <h1>Hello world!</h1>
+ <h1>this isint working :D!</h1>
 <p>The time is <%= Time.now %></p>
 
 <h1>videogames</h1>
 <ul>
-  <% videogames.each do |videogames| %>
+  <% videogames.each do |videogame| %>
     <li>
-      <a href="mailto:<%= videogames[:ranking] %>"><%= videogames[:name] %></a>
-      (<%= videogames[:console] %>)
+      <%= videogame[:name] %>
+      <%= videogame[:rating] %>
+      (<%= videogame[:console] %>)
+      <form action="/delete/<%= videogame[:id] %>" method="post" class="delete">
+        <input type="submit" value="delete">
+      </form>
     </li>
   <% end %>
 </ul>
