@@ -72,9 +72,9 @@ Cuba.define do
     on "create" do
       name = req.params["name"]
       rating = req.params["rating"]
-      dconsole = req.params["console"]
+      console = req.params["console"]
       db.execute(
-        "INSERT INTO students (name, rating, console) VALUES (?, ?, ?)",
+        "INSERT INTO videogames (name, rating, console) VALUES (?, ?, ?)",
         name, rating, console
       )
       res.redirect "/"
