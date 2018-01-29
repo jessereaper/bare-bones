@@ -55,21 +55,43 @@ Cuba.plugin Cuba::Render
 
 db = SQLite3::Database.new "./db/dev.db"
 
-videogames = db.execute("SELECT * FROM videogames").map do |name, rate, console|
-  { :name => name, :rate => rate, :console => console }
-end
-
 Cuba.define do
-  on "about" do
-    res.write view("about")
-  end
-
   on root do
+    videogames_array = db.execute("SELECT * FROM videogames")
+    videogames = student_array.map do |id, name, rating, console|
+      { :id => id, :name => name, :rating => rating, :console => console }
+    end
     res.write view("index", videogames: videogames)
   end
 
+  on "new" do
+    res.write view("new")
+  end
+
+  on post do
+    on "create" do
+      name = req.params["name"]
+      rating = req.params["rating"]
+      dconsole = req.params["console"]
+      db.execute(
+        "INSERT INTO students (name, rating, console) VALUES (?, ?, ?)",
+        name, rating, console
+      )
+      res.redirect "/"
+    end
+
+    on "delete/:id" do |id|
+      db.execute(
+        "DELETE FROM videogames WHERE id=#{id}"
+      )
+      res.redirect "/"
+    end
+  end
+
   def not_found
-    super
+    res.status = "404"
+    res.headers["Content-Type"] = "text/html"
+
     res.write view("404")
   end
 end
