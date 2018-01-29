@@ -58,7 +58,7 @@ db = SQLite3::Database.new "./db/dev.db"
 Cuba.define do
   on root do
     videogames_array = db.execute("SELECT * FROM videogames")
-    videogames = student_array.map do |id, name, rating, console|
+    videogames = videogames_array.map do |id, name, rating, console|
       { :id => id, :name => name, :rating => rating, :console => console }
     end
     res.write view("index", videogames: videogames)
